@@ -1,5 +1,7 @@
 package ir.taghizadeh.rxjava2_operators.creating;
 
+import java.util.List;
+
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
@@ -14,7 +16,6 @@ import io.reactivex.disposables.Disposable;
  *
  * @author ALi Taghizadeh
  * @see <a href="http://reactivex.io/documentation/operators/create.html">Reactivex</a>
- *
  */
 
 public class CreateObservable {
@@ -22,14 +23,14 @@ public class CreateObservable {
     public void CreateObservable_method1() {
         /*
 
-        The first way to create an observable.
-        Here we create both observable and observer separately and eventually we connect them together by subscribe operator.
+        The first way:
+        Here we create the observable and then we define an observer separately and eventually we connect them together by subscribe operator.
 
         */
         Observable<String> observable = Observable.create(new ObservableOnSubscribe<String>() {
             @Override
             public void subscribe(ObservableEmitter<String> emitter) throws Exception {
-                emitter.onNext("First Rx experience");
+                emitter.onNext("The first way");
                 emitter.onComplete();
             }
         });
@@ -57,5 +58,83 @@ public class CreateObservable {
         };
 
         observable.subscribe(observer);
-     }
+    }
+
+    public void CreateObservable_method2() {
+        /*
+
+        The second way:
+        Implementation seems easier in this method as everything happens at once.
+
+        */
+        Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(ObservableEmitter<String> emitter) throws Exception {
+                emitter.onNext("The second way");
+                emitter.onComplete();
+            }
+        })
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                        System.out.println(s);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        e.printStackTrace();
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        System.out.println("DONE!");
+                    }
+                });
+    }
+
+    public void CreateObservable_method3(final List<String> list) {
+        /*
+
+        A more complicated method:
+        It's exactly what we practiced in method2. The only difference is that in this method, emitter will pass a list of strings.
+
+        */
+        Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(ObservableEmitter<String> emitter) throws Exception {
+                try {
+                    for (String str : list) {
+                        emitter.onNext(str);
+                    }
+                } catch (Exception e) {
+                    emitter.onError(e);
+                }
+                emitter.onComplete();
+            }
+        })
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                        System.out.println(s);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        e.printStackTrace();
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        System.out.println("DONE!");
+                    }
+                });
+    }
 }
