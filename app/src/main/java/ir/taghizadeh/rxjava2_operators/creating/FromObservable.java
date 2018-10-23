@@ -54,4 +54,37 @@ public class FromObservable {
                 });
     }
 
+    public void fromArray() {
+        /*
+
+        Signals the elements of the given array and then completes the sequence.
+        Note: RxJava does not support primitive arrays, only (generic) reference arrays.
+
+        */
+
+        Observable
+                .fromArray(new String[]{"Item1", "Item2", "Item3", "Item4", "Item5"})
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(String s) {
+                        System.out.println(s);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        e.printStackTrace();
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        System.out.println("DONE!");
+                    }
+                });
+    }
+
 }
