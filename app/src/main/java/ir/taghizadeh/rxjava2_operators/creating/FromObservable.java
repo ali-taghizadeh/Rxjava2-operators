@@ -29,7 +29,8 @@ public class FromObservable {
         */
 
         List<Integer> list = new ArrayList<>(Arrays.asList(1,1,2,3,6,5,4,4,4));
-        Observable.fromIterable(list)
+        Observable
+                .fromIterable(list)
                 .subscribe(new Observer<Integer>() {
                     @Override
                     public void onSubscribe(Disposable d) {

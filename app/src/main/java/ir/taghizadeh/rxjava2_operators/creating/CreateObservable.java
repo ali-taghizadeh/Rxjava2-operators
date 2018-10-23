@@ -20,7 +20,7 @@ import io.reactivex.disposables.Disposable;
 
 public class CreateObservable {
 
-    public void CreateObservable_method1() {
+    public void createObservable_method1() {
         /*
 
         The first way:
@@ -60,7 +60,7 @@ public class CreateObservable {
         observable.subscribe(observer);
     }
 
-    public void CreateObservable_method2() {
+    public void createObservable_method2() {
         /*
 
         The second way:
@@ -96,7 +96,7 @@ public class CreateObservable {
                 });
     }
 
-    public void CreateObservable_method3(final List<String> list) {
+    public void createObservable_method3(final List<String> list) {
         /*
 
         A more complicated method:

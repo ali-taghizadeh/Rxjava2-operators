@@ -14,7 +14,7 @@ import io.reactivex.disposables.Disposable;
 
 public class JustObservable {
 
-    public void JustObservable_method1() {
+    public void justObservable_method1() {
         /*
 
         Here we convert a single string value into an observable that emits that string.
@@ -44,7 +44,7 @@ public class JustObservable {
                 });
     }
 
-    public void JustObservable_method2() {
+    public void justObservable_method2() {
         /*
 
         Here we convert 4 values into an observable that emits those values.
@@ -75,7 +75,7 @@ public class JustObservable {
                 });
     }
 
-    public void JustObservable_method3() {
+    public void justObservable_method3() {
         /*
 
         In this method we convert a list of strings into an observable.
