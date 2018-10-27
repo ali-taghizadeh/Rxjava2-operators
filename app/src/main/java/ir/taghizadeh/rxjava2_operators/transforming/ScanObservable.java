@@ -15,7 +15,7 @@ import io.reactivex.functions.BiFunction;
 
 public class ScanObservable {
 
-    public void groupByObservable() {
+    public void scanObservable() {
         /*
 
         This operator Transforms each item into another item, like you did with map.
