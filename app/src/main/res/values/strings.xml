@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Rxjava2-operators</string>
+    <string name="observable_creating">Creating</string>
+    <string name="observable_transforming">Transforming</string>
+    <string name="observable_filtering">Filtering</string>
+    <string name="observable_combining">Combining</string>
+    <string name="observable_conditional">Conditional</string>
 </resources>

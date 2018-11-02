@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/observable_creating"
+        android:enabled="true"
+        android:title="@string/observable_creating"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/observable_transforming"
+        android:enabled="true"
+        android:title="@string/observable_transforming"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/observable_filtering"
+        android:enabled="true"
+        android:title="@string/observable_filtering"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/observable_combining"
+        android:enabled="true"
+        android:title="@string/observable_combining"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/observable_conditional"
+        android:enabled="true"
+        android:title="@string/observable_conditional"
+        app:showAsAction="ifRoom" />
+</menu>
