@@ -6,4 +6,5 @@
     <string name="observable_filtering">Filtering</string>
     <string name="observable_combining">Combining</string>
     <string name="observable_conditional">Conditional</string>
+    <string name="run">Run</string>
 </resources>

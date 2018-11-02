@@ -1,9 +1,49 @@
 {
   "operators": [
     {
-      "id": 0,
+      "id": 5,
       "name": "All",
       "description": "Determine whether all items emitted by an Observable meet some criteria"
+    },
+    {
+      "id": 6,
+      "name": "Amb",
+      "description": "Given two or more source Observables, emit all of the items from only the first of these Observables to emit an item or notification"
+    },
+    {
+      "id": 7,
+      "name": "Contains",
+      "description": "Determine whether an Observable emits a particular item or not"
+    },
+    {
+      "id": 8,
+      "name": "DefaultIfEmpty",
+      "description": "Emit items from the source Observable, or a default item if the source Observable emits nothing"
+    },
+    {
+      "id": 9,
+      "name": "SequenceEqual",
+      "description": "Determine whether two Observables emit the same sequence of items"
+    },
+    {
+      "id": 10,
+      "name": "SkipUntil",
+      "description": "Discard items emitted by an Observable until a second Observable emits an item"
+    },
+    {
+      "id": 11,
+      "name": "SkipWhile",
+      "description": "Discard items emitted by an Observable until a specified condition becomes false"
+    },
+    {
+      "id": 12,
+      "name": "TakeUntil",
+      "description": "Discard any items emitted by an Observable after a second Observable emits an item or terminates"
+    },
+    {
+      "id": 13,
+      "name": "TakeWhile",
+      "description": "Mirror items emitted by an Observable until a specified condition becomes false"
     }
   ]
 }

@@ -1,9 +1,39 @@
 {
   "operators": [
     {
-      "id": 0,
+      "id": 22,
       "name": "Distinct",
       "description": "Suppress duplicate items emitted by an Observable"
+    },
+    {
+      "id": 23,
+      "name": "Filter",
+      "description": "Emit only those items from an Observable that pass a predicate test"
+    },
+    {
+      "id": 24,
+      "name": "IgnoreElements",
+      "description": "Do not emit any items from an Observable but mirror its termination notification"
+    },
+    {
+      "id": 25,
+      "name": "SkipLast",
+      "description": "Suppress the last n items emitted by an Observable"
+    },
+    {
+      "id": 26,
+      "name": "Skip",
+      "description": "Suppress the first n items emitted by an Observable"
+    },
+    {
+      "id": 27,
+      "name": "TakeLast",
+      "description": "Emit only the last n items emitted by an Observable"
+    },
+    {
+      "id": 28,
+      "name": "Take",
+      "description": "Emit only the first n items emitted by an Observable"
     }
   ]
 }

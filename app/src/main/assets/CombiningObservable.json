@@ -4,6 +4,26 @@
       "id": 0,
       "name": "CombineLatest",
       "description": "When an item is emitted by either of two Observables, combine the latest item emitted by each Observable via a specified function and emit items based on the results of this function"
+    },
+    {
+      "id": 1,
+      "name": "Concat",
+      "description": "Emit the emissions from two or more Observables without interleaving them"
+    },
+    {
+      "id": 2,
+      "name": "Join",
+      "description": "Combine items emitted by two Observables whenever an item from one Observable is emitted during a time window defined according to an item emitted by the other Observable"
+    },
+    {
+      "id": 3,
+      "name": "Merge",
+      "description": "Combine multiple Observables into one by merging their emissions"
+    },
+    {
+      "id": 4,
+      "name": "Zip",
+      "description": "Combine the emissions of multiple Observables together via a specified function and emit single items for each combination based on the results of this function"
     }
   ]
 }
