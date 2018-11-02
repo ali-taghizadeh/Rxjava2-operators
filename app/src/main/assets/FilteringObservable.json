@@ -1,0 +1,9 @@
+{
+  "operators": [
+    {
+      "id": 0,
+      "name": "Distinct",
+      "description": "Suppress duplicate items emitted by an Observable"
+    }
+  ]
+}

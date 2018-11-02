@@ -1,0 +1,9 @@
+{
+  "operators": [
+    {
+      "id": 0,
+      "name": "Buffer",
+      "description": "Periodically gather items emitted by an Observable into bundles and emit these bundles rather than emitting the items one at a time"
+    }
+  ]
+}

@@ -5,7 +5,7 @@
         android:id="@+id/observable_creating"
         android:enabled="true"
         android:title="@string/observable_creating"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/observable_transforming"
         android:enabled="true"
