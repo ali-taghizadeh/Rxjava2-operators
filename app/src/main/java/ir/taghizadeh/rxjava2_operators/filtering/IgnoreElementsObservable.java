@@ -14,6 +14,8 @@ import io.reactivex.disposables.Disposable;
 
 public class IgnoreElementsObservable {
 
+    private Disposable disposable;
+
     public void ignoreElementsObservable() {
         /*
 
@@ -29,7 +31,7 @@ public class IgnoreElementsObservable {
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        System.out.println("onSubscribed");
+                        disposable = d;
                     }
 
                     @Override
@@ -43,5 +45,11 @@ public class IgnoreElementsObservable {
                     }
                 });
 
+    }
+
+    public void dispose(){
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
     }
 }

@@ -20,6 +20,8 @@ import io.reactivex.disposables.Disposable;
 
 public class CreateObservable {
 
+    private Disposable disposable;
+
     public void createObservable_method1() {
         /*
 
@@ -38,7 +40,7 @@ public class CreateObservable {
         Observer<String> observer = new Observer<String>() {
             @Override
             public void onSubscribe(Disposable d) {
-
+                disposable = d;
             }
 
             @Override
@@ -136,5 +138,11 @@ public class CreateObservable {
                         System.out.println("DONE!");
                     }
                 });
+    }
+
+    public void dispose(){
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
     }
 }

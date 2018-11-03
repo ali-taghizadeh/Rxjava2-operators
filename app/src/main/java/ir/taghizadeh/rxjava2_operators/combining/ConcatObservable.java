@@ -14,6 +14,8 @@ import io.reactivex.disposables.Disposable;
 
 public class ConcatObservable {
 
+    private Disposable disposable;
+
     public void concatObservable() {
         /*
 
@@ -29,7 +31,7 @@ public class ConcatObservable {
                 .subscribe(new Observer<String>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        disposable = d;
                     }
 
                     @Override
@@ -49,6 +51,12 @@ public class ConcatObservable {
                 });
 
 
+    }
+
+    public void dispose(){
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
     }
 
 }

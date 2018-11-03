@@ -19,6 +19,8 @@ import io.reactivex.disposables.Disposable;
 
 public class JoinObservable {
 
+    private Disposable disposable;
+
     public void joinObservable() {
         /*
 
@@ -43,7 +45,7 @@ public class JoinObservable {
                 .subscribe(new Observer<List<Integer>>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        disposable = d;
                     }
 
                     @Override
@@ -64,6 +66,12 @@ public class JoinObservable {
                     }
                 });
 
+    }
+
+    public void dispose(){
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
     }
 
 }

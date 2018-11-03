@@ -14,6 +14,8 @@ import io.reactivex.disposables.Disposable;
 
 public class TakeWhileObservable {
 
+    private Disposable disposable;
+
     public void takeWhileObservable() {
         /*
 
@@ -27,7 +29,7 @@ public class TakeWhileObservable {
                 .subscribe(new Observer<Integer>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        disposable = d;
                     }
 
                     @Override
@@ -45,5 +47,11 @@ public class TakeWhileObservable {
                         System.out.println("DONE!");
                     }
                 });
+    }
+
+    public void dispose(){
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
     }
 }

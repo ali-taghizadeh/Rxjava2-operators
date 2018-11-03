@@ -14,6 +14,8 @@ import io.reactivex.disposables.Disposable;
 
 public class DistinctObservable {
 
+    private Disposable disposable;
+
     public void distinctObservable() {
         /*
 
@@ -27,7 +29,7 @@ public class DistinctObservable {
                 .subscribe(new Observer<Integer>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        disposable = d;
                     }
 
                     @Override
@@ -45,5 +47,11 @@ public class DistinctObservable {
                         System.out.println("DONE!");
                     }
                 });
+    }
+
+    public void dispose(){
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
     }
 }

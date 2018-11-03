@@ -18,6 +18,8 @@ import io.reactivex.disposables.Disposable;
 
 public class CombineLatestObservable {
 
+    private Disposable disposable;
+
     public void combineLatestObservable() {
         /*
 
@@ -35,7 +37,7 @@ public class CombineLatestObservable {
                 .subscribe(new Observer<String>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        disposable = d;
                     }
 
                     @Override
@@ -53,6 +55,12 @@ public class CombineLatestObservable {
                         System.out.println("DONE!");
                     }
                 });
+    }
+
+    public void dispose(){
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
     }
 
 }

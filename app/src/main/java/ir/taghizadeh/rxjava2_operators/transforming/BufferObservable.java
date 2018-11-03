@@ -16,6 +16,8 @@ import io.reactivex.disposables.Disposable;
 
 public class BufferObservable {
 
+    private Disposable disposable;
+
     public void bufferObservable() {
         /*
 
@@ -39,7 +41,7 @@ public class BufferObservable {
                 .subscribe(new Observer<List<String>>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        disposable = d;
                     }
 
                     @Override
@@ -60,5 +62,11 @@ public class BufferObservable {
                         System.out.println("DONE!");
                     }
                 });
+    }
+
+    public void dispose(){
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
     }
 }

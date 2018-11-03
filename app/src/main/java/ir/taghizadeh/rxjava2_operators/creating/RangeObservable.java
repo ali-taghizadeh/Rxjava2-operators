@@ -14,6 +14,8 @@ import io.reactivex.disposables.Disposable;
 
 public class RangeObservable {
 
+    private Disposable disposable;
+
     public void rangeObservable() {
         /*
 
@@ -26,7 +28,7 @@ public class RangeObservable {
                 .subscribe(new Observer<Integer>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        disposable = d;
                     }
 
                     @Override
@@ -45,5 +47,11 @@ public class RangeObservable {
                     }
                 });
 
+    }
+
+    public void dispose(){
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
     }
 }

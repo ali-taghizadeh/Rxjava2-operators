@@ -14,6 +14,8 @@ import io.reactivex.disposables.Disposable;
 
 public class RepeatObservable {
 
+    private Disposable disposable;
+
     public void repeatObservable() {
         /*
 
@@ -26,7 +28,7 @@ public class RepeatObservable {
                 .subscribe(new Observer<String>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        disposable = d;
                     }
 
                     @Override
@@ -45,5 +47,11 @@ public class RepeatObservable {
                     }
                 });
 
+    }
+
+    public void dispose(){
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
     }
 }

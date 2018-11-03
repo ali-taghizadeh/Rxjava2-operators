@@ -16,6 +16,8 @@ import io.reactivex.observables.GroupedObservable;
 
 public class GroupByObservable {
 
+    private Disposable disposable;
+
     public void groupByObservable() {
         /*
 
@@ -34,7 +36,7 @@ public class GroupByObservable {
                 .subscribe(new Observer<GroupedObservable<Boolean, Integer>>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        disposable = d;
                     }
 
                     @Override
@@ -74,5 +76,11 @@ public class GroupByObservable {
                         System.out.println("DONE!");
                     }
                 });
+    }
+
+    public void dispose(){
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
     }
 }

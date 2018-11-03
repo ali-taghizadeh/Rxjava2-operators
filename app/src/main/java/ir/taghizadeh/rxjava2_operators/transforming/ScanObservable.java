@@ -15,6 +15,8 @@ import io.reactivex.functions.BiFunction;
 
 public class ScanObservable {
 
+    private Disposable disposable;
+
     public void scanObservable() {
         /*
 
@@ -33,7 +35,7 @@ public class ScanObservable {
                 .subscribe(new Observer<Integer>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        disposable = d;
                     }
 
                     @Override
@@ -52,5 +54,11 @@ public class ScanObservable {
                     }
 
                 });
+    }
+
+    public void dispose(){
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
     }
 }

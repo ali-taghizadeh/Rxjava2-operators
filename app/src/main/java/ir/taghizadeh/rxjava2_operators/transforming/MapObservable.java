@@ -15,6 +15,8 @@ import io.reactivex.functions.Function;
 
 public class MapObservable {
 
+    private Disposable disposable;
+
     public void mapObservable() {
         /*
 
@@ -33,7 +35,7 @@ public class MapObservable {
                 .subscribe(new Observer<String>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        disposable = d;
                     }
 
                     @Override
@@ -53,5 +55,11 @@ public class MapObservable {
 
                 });
 
+    }
+
+    public void dispose(){
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
     }
 }

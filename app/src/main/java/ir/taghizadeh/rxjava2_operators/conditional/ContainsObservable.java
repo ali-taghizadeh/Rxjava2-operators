@@ -18,6 +18,8 @@ import io.reactivex.disposables.Disposable;
 
 public class ContainsObservable {
 
+    private Disposable disposable;
+
     public void containsObservable() {
         /*
 
@@ -32,7 +34,7 @@ public class ContainsObservable {
                 .subscribe(new SingleObserver<Boolean>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        disposable = d;
                     }
 
                     @Override
@@ -45,5 +47,11 @@ public class ContainsObservable {
                         e.printStackTrace();
                     }
                 });
+    }
+
+    public void dispose(){
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
     }
 }

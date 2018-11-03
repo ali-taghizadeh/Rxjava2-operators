@@ -14,6 +14,8 @@ import io.reactivex.disposables.Disposable;
 
 public class MergeObservable {
 
+    private Disposable disposable;
+
     public void mergeObservable() {
         /*
 
@@ -29,7 +31,7 @@ public class MergeObservable {
                 .subscribe(new Observer<String>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        disposable = d;
                     }
 
                     @Override
@@ -48,6 +50,12 @@ public class MergeObservable {
                     }
                 });
 
+    }
+
+    public void dispose(){
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
     }
 
 }

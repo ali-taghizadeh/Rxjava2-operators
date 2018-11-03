@@ -17,6 +17,8 @@ import io.reactivex.functions.Function;
 
 public class AmbObservable {
 
+    private Disposable disposable;
+
     public void ambObservable() {
         /*
 
@@ -44,7 +46,7 @@ public class AmbObservable {
                 .subscribe(new Observer<Long>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        disposable = d;
                     }
 
                     @Override
@@ -62,5 +64,11 @@ public class AmbObservable {
                         System.out.println("DONE!");
                     }
                 });
+    }
+
+    public void dispose(){
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
     }
 }

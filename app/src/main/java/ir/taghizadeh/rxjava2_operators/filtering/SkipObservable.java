@@ -14,6 +14,8 @@ import io.reactivex.disposables.Disposable;
 
 public class SkipObservable {
 
+    private Disposable disposable;
+
     public void skipObservable() {
         /*
 
@@ -27,7 +29,7 @@ public class SkipObservable {
                 .subscribe(new Observer<Integer>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        disposable = d;
                     }
 
                     @Override
@@ -47,5 +49,11 @@ public class SkipObservable {
 
                 });
 
+    }
+
+    public void dispose(){
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
     }
 }

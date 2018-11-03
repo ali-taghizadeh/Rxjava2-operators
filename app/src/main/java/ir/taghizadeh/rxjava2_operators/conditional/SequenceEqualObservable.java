@@ -16,6 +16,8 @@ import io.reactivex.disposables.Disposable;
 
 public class SequenceEqualObservable {
 
+    private Disposable disposable;
+
     public void sequenceEqualObservable() {
         /*
 
@@ -33,7 +35,7 @@ public class SequenceEqualObservable {
                 .subscribe(new SingleObserver<Boolean>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        disposable = d;
                     }
 
                     @Override
@@ -46,5 +48,11 @@ public class SequenceEqualObservable {
                         e.printStackTrace();
                     }
                 });
+    }
+
+    public void dispose(){
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
     }
 }

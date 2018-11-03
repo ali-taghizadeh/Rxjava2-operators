@@ -14,6 +14,8 @@ import io.reactivex.disposables.Disposable;
 
 public class DefaultIfEmptyObservable {
 
+    private Disposable disposable;
+
     public void defaultIfEmptyObservable() {
         /*
 
@@ -29,7 +31,7 @@ public class DefaultIfEmptyObservable {
                 .subscribe(new Observer<Integer>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        disposable = d;
                     }
 
                     @Override
@@ -47,5 +49,11 @@ public class DefaultIfEmptyObservable {
                         System.out.println("DONE!");
                     }
                 });
+    }
+
+    public void dispose(){
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
     }
 }

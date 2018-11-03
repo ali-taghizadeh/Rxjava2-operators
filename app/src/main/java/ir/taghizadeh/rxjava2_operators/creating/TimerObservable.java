@@ -16,6 +16,8 @@ import io.reactivex.disposables.Disposable;
 
 public class TimerObservable {
 
+    private Disposable disposable;
+
     public void timerObservable() {
         /*
 
@@ -30,7 +32,7 @@ public class TimerObservable {
                 .subscribe(new Observer<Long>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        disposable = d;
                     }
 
                     @Override
@@ -48,5 +50,11 @@ public class TimerObservable {
                         System.out.println("DONE!");
                     }
                 });
+    }
+
+    public void dispose(){
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
     }
 }

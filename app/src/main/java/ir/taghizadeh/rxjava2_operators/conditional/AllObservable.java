@@ -18,6 +18,8 @@ import io.reactivex.disposables.Disposable;
 
 public class AllObservable {
 
+    private Disposable disposable;
+
     public void allObservable() {
         /*
 
@@ -35,7 +37,7 @@ public class AllObservable {
                 .subscribe(new SingleObserver<Boolean>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        disposable = d;
                     }
 
                     @Override
@@ -48,5 +50,11 @@ public class AllObservable {
                         e.printStackTrace();
                     }
                 });
+    }
+
+    public void dispose(){
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
     }
 }

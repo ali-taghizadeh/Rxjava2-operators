@@ -16,6 +16,8 @@ import io.reactivex.functions.BiFunction;
 
 public class ZipObservable {
 
+    private Disposable disposable;
+
     public void zipObservable() {
         /*
 
@@ -38,7 +40,7 @@ public class ZipObservable {
         }).subscribe(new Observer<String>() {
             @Override
             public void onSubscribe(Disposable d) {
-
+                disposable = d;
             }
 
             @Override
@@ -56,6 +58,12 @@ public class ZipObservable {
                 System.out.println("DONE!");
             }
         });
+    }
+
+    public void dispose(){
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
     }
 
 }

@@ -20,6 +20,8 @@ import io.reactivex.schedulers.Schedulers;
 
 public class FlatMapObservable {
 
+    private Disposable disposable;
+
     public void flatMapObservable() {
         /*
 
@@ -42,7 +44,7 @@ public class FlatMapObservable {
                 .subscribe(new Observer<Integer>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        disposable = d;
                     }
 
                     @Override
@@ -60,5 +62,11 @@ public class FlatMapObservable {
                         System.out.println("DONE!");
                     }
                 });
+    }
+
+    public void dispose(){
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
     }
 }

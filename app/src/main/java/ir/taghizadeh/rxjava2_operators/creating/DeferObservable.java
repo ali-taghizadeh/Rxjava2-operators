@@ -18,6 +18,7 @@ import io.reactivex.disposables.Disposable;
 
 public class DeferObservable {
 
+    private Disposable disposable;
     private String value = "firstValue";
 
     private Observable<String> valueObservable() {
@@ -37,7 +38,7 @@ public class DeferObservable {
         stringObservable.subscribe(new Observer<String>() {
             @Override
             public void onSubscribe(Disposable d) {
-
+                disposable = d;
             }
 
             @Override
@@ -55,5 +56,11 @@ public class DeferObservable {
                 System.out.println("DONE!");
             }
         });
+    }
+
+    public void dispose(){
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
     }
 }

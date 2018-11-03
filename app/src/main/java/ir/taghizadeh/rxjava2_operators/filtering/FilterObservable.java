@@ -15,6 +15,8 @@ import io.reactivex.functions.Predicate;
 
 public class FilterObservable {
 
+    private Disposable disposable;
+
     public void filterObservable() {
         /*
 
@@ -32,7 +34,7 @@ public class FilterObservable {
                 .subscribe(new Observer<Integer>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        disposable = d;
                     }
 
                     @Override
@@ -51,5 +53,11 @@ public class FilterObservable {
                     }
                 });
 
+    }
+
+    public void dispose(){
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
     }
 }

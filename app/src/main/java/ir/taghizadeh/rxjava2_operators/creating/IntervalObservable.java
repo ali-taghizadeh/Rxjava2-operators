@@ -16,6 +16,8 @@ import io.reactivex.disposables.Disposable;
 
 public class IntervalObservable {
 
+    private Disposable disposable;
+
     public void intervalObservable() {
         /*
 
@@ -27,7 +29,7 @@ public class IntervalObservable {
                 .subscribe(new Observer<Long>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        disposable = d;
                     }
 
                     @Override
@@ -46,5 +48,11 @@ public class IntervalObservable {
                     }
                 });
 
+    }
+
+    public void dispose(){
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.dispose();
+        }
     }
 }
