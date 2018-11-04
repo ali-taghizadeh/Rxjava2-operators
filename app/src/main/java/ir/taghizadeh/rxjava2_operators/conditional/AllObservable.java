@@ -6,6 +6,7 @@ import java.util.List;
 
 import io.reactivex.Observable;
 import io.reactivex.SingleObserver;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
 /**
@@ -18,9 +19,9 @@ import io.reactivex.disposables.Disposable;
 
 public class AllObservable {
 
-    private Disposable disposable;
+    private CompositeDisposable compositeDisposable;
 
-    public void allObservable() {
+    public CompositeDisposable allObservable() {
         /*
 
         Pass a predicate function to the All operator that accepts an item emitted by the source Observable and
@@ -37,7 +38,7 @@ public class AllObservable {
                 .subscribe(new SingleObserver<Boolean>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        disposable = d;
+                        getCompositeDisposable().add(d);
                     }
 
                     @Override
@@ -50,11 +51,13 @@ public class AllObservable {
                         e.printStackTrace();
                     }
                 });
+        return compositeDisposable;
     }
 
-    public void dispose(){
-        if (disposable != null && !disposable.isDisposed()) {
-            disposable.dispose();
+    private  CompositeDisposable getCompositeDisposable() {
+        if (compositeDisposable == null || compositeDisposable.isDisposed()) {
+            compositeDisposable = new CompositeDisposable();
         }
+        return compositeDisposable;
     }
 }

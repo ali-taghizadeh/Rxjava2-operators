@@ -4,6 +4,7 @@ import java.util.List;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
 /**
@@ -16,9 +17,9 @@ import io.reactivex.disposables.Disposable;
 
 public class BufferObservable {
 
-    private Disposable disposable;
+    private CompositeDisposable compositeDisposable;
 
-    public void bufferObservable() {
+    public CompositeDisposable bufferObservable() {
         /*
 
         Buffer will create a window when the first value is produced.
@@ -41,7 +42,7 @@ public class BufferObservable {
                 .subscribe(new Observer<List<String>>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        disposable = d;
+                        getCompositeDisposable().add(d);
                     }
 
                     @Override
@@ -62,11 +63,13 @@ public class BufferObservable {
                         System.out.println("DONE!");
                     }
                 });
+        return compositeDisposable;
     }
 
-    public void dispose(){
-        if (disposable != null && !disposable.isDisposed()) {
-            disposable.dispose();
+    private  CompositeDisposable getCompositeDisposable() {
+        if (compositeDisposable == null || compositeDisposable.isDisposed()) {
+            compositeDisposable = new CompositeDisposable();
         }
+        return compositeDisposable;
     }
 }

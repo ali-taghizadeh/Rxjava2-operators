@@ -2,6 +2,7 @@ package ir.taghizadeh.rxjava2_operators.transforming;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Function;
 import io.reactivex.observables.GroupedObservable;
@@ -16,9 +17,9 @@ import io.reactivex.observables.GroupedObservable;
 
 public class GroupByObservable {
 
-    private Disposable disposable;
+    private CompositeDisposable compositeDisposable;
 
-    public void groupByObservable() {
+    public CompositeDisposable groupByObservable() {
         /*
 
         Here is an animation demonstrating this operator very well :
@@ -36,7 +37,7 @@ public class GroupByObservable {
                 .subscribe(new Observer<GroupedObservable<Boolean, Integer>>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        disposable = d;
+                        getCompositeDisposable().add(d);
                     }
 
                     @Override
@@ -76,11 +77,13 @@ public class GroupByObservable {
                         System.out.println("DONE!");
                     }
                 });
+        return compositeDisposable;
     }
 
-    public void dispose(){
-        if (disposable != null && !disposable.isDisposed()) {
-            disposable.dispose();
+    private  CompositeDisposable getCompositeDisposable() {
+        if (compositeDisposable == null || compositeDisposable.isDisposed()) {
+            compositeDisposable = new CompositeDisposable();
         }
+        return compositeDisposable;
     }
 }

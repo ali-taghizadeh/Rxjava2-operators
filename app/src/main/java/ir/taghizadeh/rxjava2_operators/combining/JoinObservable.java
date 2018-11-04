@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
 /**
@@ -19,9 +20,9 @@ import io.reactivex.disposables.Disposable;
 
 public class JoinObservable {
 
-    private Disposable disposable;
+    private CompositeDisposable compositeDisposable;
 
-    public void joinObservable() {
+    public CompositeDisposable joinObservable() {
         /*
 
         The Join operator combines the items emitted by two Observables,
@@ -45,7 +46,7 @@ public class JoinObservable {
                 .subscribe(new Observer<List<Integer>>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        disposable = d;
+                        getCompositeDisposable().add(d);
                     }
 
                     @Override
@@ -65,13 +66,14 @@ public class JoinObservable {
                         System.out.println("DONE!");
                     }
                 });
-
+        return compositeDisposable;
     }
 
-    public void dispose(){
-        if (disposable != null && !disposable.isDisposed()) {
-            disposable.dispose();
+    private  CompositeDisposable getCompositeDisposable() {
+        if (compositeDisposable == null || compositeDisposable.isDisposed()) {
+            compositeDisposable = new CompositeDisposable();
         }
+        return compositeDisposable;
     }
 
 }

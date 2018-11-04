@@ -2,6 +2,7 @@ package ir.taghizadeh.rxjava2_operators.conditional;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
 /**
@@ -14,9 +15,9 @@ import io.reactivex.disposables.Disposable;
 
 public class DefaultIfEmptyObservable {
 
-    private Disposable disposable;
+    private CompositeDisposable compositeDisposable;
 
-    public void defaultIfEmptyObservable() {
+    public CompositeDisposable defaultIfEmptyObservable() {
         /*
 
         The DefaultIfEmpty operator simply mirrors the source Observable exactly if the source Observable emits any items.
@@ -31,7 +32,7 @@ public class DefaultIfEmptyObservable {
                 .subscribe(new Observer<Integer>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        disposable = d;
+                        getCompositeDisposable().add(d);
                     }
 
                     @Override
@@ -49,11 +50,13 @@ public class DefaultIfEmptyObservable {
                         System.out.println("DONE!");
                     }
                 });
+        return compositeDisposable;
     }
 
-    public void dispose(){
-        if (disposable != null && !disposable.isDisposed()) {
-            disposable.dispose();
+    private  CompositeDisposable getCompositeDisposable() {
+        if (compositeDisposable == null || compositeDisposable.isDisposed()) {
+            compositeDisposable = new CompositeDisposable();
         }
+        return compositeDisposable;
     }
 }

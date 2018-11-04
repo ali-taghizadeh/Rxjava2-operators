@@ -2,6 +2,7 @@ package ir.taghizadeh.rxjava2_operators.filtering;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
 /**
@@ -14,9 +15,9 @@ import io.reactivex.disposables.Disposable;
 
 public class DistinctObservable {
 
-    private Disposable disposable;
+    private CompositeDisposable compositeDisposable;
 
-    public void distinctObservable() {
+    public CompositeDisposable distinctObservable() {
         /*
 
         The Distinct operator filters an Observable by only allowing items through that have not already been emitted.
@@ -29,7 +30,7 @@ public class DistinctObservable {
                 .subscribe(new Observer<Integer>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        disposable = d;
+                        getCompositeDisposable().add(d);
                     }
 
                     @Override
@@ -47,11 +48,13 @@ public class DistinctObservable {
                         System.out.println("DONE!");
                     }
                 });
+        return compositeDisposable;
     }
 
-    public void dispose(){
-        if (disposable != null && !disposable.isDisposed()) {
-            disposable.dispose();
+    private  CompositeDisposable getCompositeDisposable() {
+        if (compositeDisposable == null || compositeDisposable.isDisposed()) {
+            compositeDisposable = new CompositeDisposable();
         }
+        return compositeDisposable;
     }
 }

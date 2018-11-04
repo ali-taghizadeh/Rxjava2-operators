@@ -5,6 +5,7 @@ import java.util.concurrent.Callable;
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
 /**
@@ -18,7 +19,7 @@ import io.reactivex.disposables.Disposable;
 
 public class DeferObservable {
 
-    private Disposable disposable;
+    private CompositeDisposable compositeDisposable;
     private String value = "firstValue";
 
     private Observable<String> valueObservable() {
@@ -30,7 +31,7 @@ public class DeferObservable {
         });
     }
 
-    public void deferObservable() {
+    public CompositeDisposable deferObservable() {
 
         value = "secondValue";
         Observable<String> stringObservable = valueObservable();
@@ -38,7 +39,7 @@ public class DeferObservable {
         stringObservable.subscribe(new Observer<String>() {
             @Override
             public void onSubscribe(Disposable d) {
-                disposable = d;
+                getCompositeDisposable().add(d);
             }
 
             @Override
@@ -56,11 +57,13 @@ public class DeferObservable {
                 System.out.println("DONE!");
             }
         });
+        return compositeDisposable;
     }
 
-    public void dispose(){
-        if (disposable != null && !disposable.isDisposed()) {
-            disposable.dispose();
+    private  CompositeDisposable getCompositeDisposable() {
+        if (compositeDisposable == null || compositeDisposable.isDisposed()) {
+            compositeDisposable = new CompositeDisposable();
         }
+        return compositeDisposable;
     }
 }

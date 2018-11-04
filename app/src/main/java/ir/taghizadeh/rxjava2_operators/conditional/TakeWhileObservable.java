@@ -2,6 +2,7 @@ package ir.taghizadeh.rxjava2_operators.conditional;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
 /**
@@ -14,9 +15,9 @@ import io.reactivex.disposables.Disposable;
 
 public class TakeWhileObservable {
 
-    private Disposable disposable;
+    private CompositeDisposable compositeDisposable;
 
-    public void takeWhileObservable() {
+    public CompositeDisposable takeWhileObservable() {
         /*
 
         The TakeWhile mirrors the source Observable until such time as some condition you specify becomes false,
@@ -29,7 +30,7 @@ public class TakeWhileObservable {
                 .subscribe(new Observer<Integer>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        disposable = d;
+                        getCompositeDisposable().add(d);
                     }
 
                     @Override
@@ -47,11 +48,13 @@ public class TakeWhileObservable {
                         System.out.println("DONE!");
                     }
                 });
+        return compositeDisposable;
     }
 
-    public void dispose(){
-        if (disposable != null && !disposable.isDisposed()) {
-            disposable.dispose();
+    private  CompositeDisposable getCompositeDisposable() {
+        if (compositeDisposable == null || compositeDisposable.isDisposed()) {
+            compositeDisposable = new CompositeDisposable();
         }
+        return compositeDisposable;
     }
 }

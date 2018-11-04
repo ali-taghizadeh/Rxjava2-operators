@@ -2,6 +2,7 @@ package ir.taghizadeh.rxjava2_operators.transforming;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.BiFunction;
 
@@ -15,9 +16,9 @@ import io.reactivex.functions.BiFunction;
 
 public class ScanObservable {
 
-    private Disposable disposable;
+    private CompositeDisposable compositeDisposable;
 
-    public void scanObservable() {
+    public CompositeDisposable scanObservable() {
         /*
 
         This operator Transforms each item into another item, like you did with map.
@@ -35,7 +36,7 @@ public class ScanObservable {
                 .subscribe(new Observer<Integer>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        disposable = d;
+                        getCompositeDisposable().add(d);
                     }
 
                     @Override
@@ -52,13 +53,14 @@ public class ScanObservable {
                     public void onComplete() {
                         System.out.println("DONE!");
                     }
-
                 });
+        return compositeDisposable;
     }
 
-    public void dispose(){
-        if (disposable != null && !disposable.isDisposed()) {
-            disposable.dispose();
+    private  CompositeDisposable getCompositeDisposable() {
+        if (compositeDisposable == null || compositeDisposable.isDisposed()) {
+            compositeDisposable = new CompositeDisposable();
         }
+        return compositeDisposable;
     }
 }

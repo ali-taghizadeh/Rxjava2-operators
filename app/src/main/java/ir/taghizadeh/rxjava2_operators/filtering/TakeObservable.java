@@ -2,6 +2,7 @@ package ir.taghizadeh.rxjava2_operators.filtering;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
 /**
@@ -14,9 +15,9 @@ import io.reactivex.disposables.Disposable;
 
 public class TakeObservable {
 
-    private Disposable disposable;
+    private CompositeDisposable compositeDisposable;
 
-    public void takeObservable() {
+    public CompositeDisposable takeObservable() {
         /*
 
         You can emit only the first n items emitted by an Observable and then complete while ignoring the remainder,
@@ -29,7 +30,7 @@ public class TakeObservable {
                 .subscribe(new Observer<Integer>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        disposable = d;
+                        getCompositeDisposable().add(d);
                     }
 
                     @Override
@@ -46,14 +47,14 @@ public class TakeObservable {
                     public void onComplete() {
                         System.out.println("DONE!");
                     }
-
                 });
-
+        return compositeDisposable;
     }
 
-    public void dispose(){
-        if (disposable != null && !disposable.isDisposed()) {
-            disposable.dispose();
+    private  CompositeDisposable getCompositeDisposable() {
+        if (compositeDisposable == null || compositeDisposable.isDisposed()) {
+            compositeDisposable = new CompositeDisposable();
         }
+        return compositeDisposable;
     }
 }

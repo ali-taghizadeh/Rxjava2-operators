@@ -2,6 +2,7 @@ package ir.taghizadeh.rxjava2_operators.combining;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
 /**
@@ -14,9 +15,9 @@ import io.reactivex.disposables.Disposable;
 
 public class ConcatObservable {
 
-    private Disposable disposable;
+    private CompositeDisposable compositeDisposable;
 
-    public void concatObservable() {
+    public CompositeDisposable concatObservable() {
         /*
 
         The Concat operator concatenates the output of multiple Observables so that they act like a single Observable,
@@ -31,7 +32,7 @@ public class ConcatObservable {
                 .subscribe(new Observer<String>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        disposable = d;
+                        getCompositeDisposable().add(d);
                     }
 
                     @Override
@@ -50,13 +51,14 @@ public class ConcatObservable {
                     }
                 });
 
-
+            return compositeDisposable;
     }
 
-    public void dispose(){
-        if (disposable != null && !disposable.isDisposed()) {
-            disposable.dispose();
+    private  CompositeDisposable getCompositeDisposable() {
+        if (compositeDisposable == null || compositeDisposable.isDisposed()) {
+            compositeDisposable = new CompositeDisposable();
         }
+        return compositeDisposable;
     }
 
 }

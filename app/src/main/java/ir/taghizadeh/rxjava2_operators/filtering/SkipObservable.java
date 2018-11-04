@@ -2,6 +2,7 @@ package ir.taghizadeh.rxjava2_operators.filtering;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
 /**
@@ -14,9 +15,9 @@ import io.reactivex.disposables.Disposable;
 
 public class SkipObservable {
 
-    private Disposable disposable;
+    private CompositeDisposable compositeDisposable;
 
-    public void skipObservable() {
+    public CompositeDisposable skipObservable() {
         /*
 
         You can ignore the first n items emitted by an Observable and attend only to those items that come after,
@@ -29,7 +30,7 @@ public class SkipObservable {
                 .subscribe(new Observer<Integer>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        disposable = d;
+                        getCompositeDisposable().add(d);
                     }
 
                     @Override
@@ -46,14 +47,14 @@ public class SkipObservable {
                     public void onComplete() {
                         System.out.println("DONE!");
                     }
-
                 });
-
+        return compositeDisposable;
     }
 
-    public void dispose(){
-        if (disposable != null && !disposable.isDisposed()) {
-            disposable.dispose();
+    private  CompositeDisposable getCompositeDisposable() {
+        if (compositeDisposable == null || compositeDisposable.isDisposed()) {
+            compositeDisposable = new CompositeDisposable();
         }
+        return compositeDisposable;
     }
 }

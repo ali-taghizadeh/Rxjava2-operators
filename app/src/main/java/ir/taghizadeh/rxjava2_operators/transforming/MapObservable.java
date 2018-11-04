@@ -2,6 +2,7 @@ package ir.taghizadeh.rxjava2_operators.transforming;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Function;
 
@@ -15,9 +16,9 @@ import io.reactivex.functions.Function;
 
 public class MapObservable {
 
-    private Disposable disposable;
+    private CompositeDisposable compositeDisposable;
 
-    public void mapObservable() {
+    public CompositeDisposable mapObservable() {
         /*
 
         The Map operator applies a function of your choosing to each item emitted by the source Observable,
@@ -35,7 +36,7 @@ public class MapObservable {
                 .subscribe(new Observer<String>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        disposable = d;
+                        getCompositeDisposable().add(d);
                     }
 
                     @Override
@@ -52,14 +53,14 @@ public class MapObservable {
                     public void onComplete() {
                         System.out.println("DONE!");
                     }
-
                 });
-
+        return compositeDisposable;
     }
 
-    public void dispose(){
-        if (disposable != null && !disposable.isDisposed()) {
-            disposable.dispose();
+    private  CompositeDisposable getCompositeDisposable() {
+        if (compositeDisposable == null || compositeDisposable.isDisposed()) {
+            compositeDisposable = new CompositeDisposable();
         }
+        return compositeDisposable;
     }
 }

@@ -2,6 +2,7 @@ package ir.taghizadeh.rxjava2_operators.creating;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
 /**
@@ -14,9 +15,9 @@ import io.reactivex.disposables.Disposable;
 
 public class JustObservable {
 
-    private Disposable disposable;
+    private CompositeDisposable compositeDisposable;
 
-    public void justObservable_method1() {
+    public CompositeDisposable justObservable_method1() {
         /*
 
         Here we convert a single string value into an observable that emits that string.
@@ -26,7 +27,7 @@ public class JustObservable {
                 .subscribe(new Observer<String>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        disposable = d;
+                        getCompositeDisposable().add(d);
                     }
 
                     @Override
@@ -44,6 +45,7 @@ public class JustObservable {
                         System.out.println("DONE!");
                     }
                 });
+        return compositeDisposable;
     }
 
     public void justObservable_method2() {
@@ -109,9 +111,10 @@ public class JustObservable {
                 });
     }
 
-    public void dispose(){
-        if (disposable != null && !disposable.isDisposed()) {
-            disposable.dispose();
+    private  CompositeDisposable getCompositeDisposable() {
+        if (compositeDisposable == null || compositeDisposable.isDisposed()) {
+            compositeDisposable = new CompositeDisposable();
         }
+        return compositeDisposable;
     }
 }

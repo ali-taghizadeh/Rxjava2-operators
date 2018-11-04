@@ -6,6 +6,7 @@ import java.util.List;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
 /**
@@ -18,9 +19,9 @@ import io.reactivex.disposables.Disposable;
 
 public class FromObservable {
 
-    private Disposable disposable;
+    private CompositeDisposable compositeDisposable;
 
-    public void fromIterable() {
+    public CompositeDisposable fromIterable() {
         /*
 
         This operator is another way to create an Observable.
@@ -36,7 +37,7 @@ public class FromObservable {
                 .subscribe(new Observer<Integer>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        disposable = d;
+                        getCompositeDisposable().add(d);
                     }
 
                     @Override
@@ -54,6 +55,7 @@ public class FromObservable {
                         System.out.println("DONE!");
                     }
                 });
+        return compositeDisposable;
     }
 
     public void fromArray() {
@@ -89,10 +91,11 @@ public class FromObservable {
                 });
     }
 
-    public void dispose(){
-        if (disposable != null && !disposable.isDisposed()) {
-            disposable.dispose();
+    private  CompositeDisposable getCompositeDisposable() {
+        if (compositeDisposable == null || compositeDisposable.isDisposed()) {
+            compositeDisposable = new CompositeDisposable();
         }
+        return compositeDisposable;
     }
 
 }

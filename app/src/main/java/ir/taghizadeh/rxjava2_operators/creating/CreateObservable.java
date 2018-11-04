@@ -6,6 +6,7 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 
 /**
@@ -20,9 +21,9 @@ import io.reactivex.disposables.Disposable;
 
 public class CreateObservable {
 
-    private Disposable disposable;
+    private CompositeDisposable compositeDisposable;
 
-    public void createObservable_method1() {
+    public CompositeDisposable createObservable_method1() {
         /*
 
         The first way:
@@ -40,7 +41,7 @@ public class CreateObservable {
         Observer<String> observer = new Observer<String>() {
             @Override
             public void onSubscribe(Disposable d) {
-                disposable = d;
+                getCompositeDisposable().add(d);
             }
 
             @Override
@@ -60,6 +61,8 @@ public class CreateObservable {
         };
 
         observable.subscribe(observer);
+
+        return compositeDisposable;
     }
 
     public void createObservable_method2() {
@@ -140,9 +143,10 @@ public class CreateObservable {
                 });
     }
 
-    public void dispose(){
-        if (disposable != null && !disposable.isDisposed()) {
-            disposable.dispose();
+    private  CompositeDisposable getCompositeDisposable() {
+        if (compositeDisposable == null || compositeDisposable.isDisposed()) {
+            compositeDisposable = new CompositeDisposable();
         }
+        return compositeDisposable;
     }
 }

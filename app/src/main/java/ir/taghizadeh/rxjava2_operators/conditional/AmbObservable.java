@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
 import io.reactivex.Observer;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Function;
 
@@ -17,9 +18,9 @@ import io.reactivex.functions.Function;
 
 public class AmbObservable {
 
-    private Disposable disposable;
+    private CompositeDisposable compositeDisposable;
 
-    public void ambObservable() {
+    public CompositeDisposable ambObservable() {
         /*
 
         When you pass a number of source Observables to Amb, it will pass through the emissions and notifications of exactly one of these Observables:
@@ -46,7 +47,7 @@ public class AmbObservable {
                 .subscribe(new Observer<Long>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        disposable = d;
+                        getCompositeDisposable().add(d);
                     }
 
                     @Override
@@ -63,12 +64,15 @@ public class AmbObservable {
                     public void onComplete() {
                         System.out.println("DONE!");
                     }
+
                 });
+        return compositeDisposable;
     }
 
-    public void dispose(){
-        if (disposable != null && !disposable.isDisposed()) {
-            disposable.dispose();
+    private  CompositeDisposable getCompositeDisposable() {
+        if (compositeDisposable == null || compositeDisposable.isDisposed()) {
+            compositeDisposable = new CompositeDisposable();
         }
+        return compositeDisposable;
     }
 }
