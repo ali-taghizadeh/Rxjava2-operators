@@ -1,27 +1,27 @@
 {
   "operators": [
     {
-      "id": 29,
+      "enum": "BUFFER",
       "name": "Buffer",
       "description": "Periodically gather items emitted by an Observable into bundles and emit these bundles rather than emitting the items one at a time"
     },
     {
-      "id": 30,
+      "enum": "FLAT_MAP",
       "name": "FlatMap",
       "description": "Transform the items emitted by an Observable into Observables, then flatten the emissions from those into a single Observable"
     },
     {
-      "id": 31,
+      "enum": "GROUP_BY",
       "name": "GroupBy",
       "description": "Divide an Observable into a set of Observables that each emit a different group of items from the original Observable, organized by key"
     },
     {
-      "id": 32,
+      "enum": "MAP",
       "name": "Map",
       "description": "Transform the items emitted by an Observable by applying a function to each item"
     },
     {
-      "id": 33,
+      "enum": "SCAN",
       "name": "Scan",
       "description": "Apply a function to each item emitted by an Observable, sequentially, and emit each successive value"
     }

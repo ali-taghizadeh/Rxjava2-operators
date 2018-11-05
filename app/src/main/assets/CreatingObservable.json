@@ -1,42 +1,42 @@
 {
   "operators": [
     {
-      "id": 14,
+      "enum": "CREATE",
       "name": "Create",
       "description": "Create an Observable from scratch by means of a function"
     },
     {
-      "id": 15,
+      "enum": "DEFER",
       "name": "Defer",
       "description": "Do not create the Observable until the observer subscribes, and create a fresh Observable for each observer"
     },
     {
-      "id": 16,
+      "enum": "FROM",
       "name": "From",
       "description": "Convert various other objects and data types into Observables"
     },
     {
-      "id": 17,
+      "enum": "INTERVAL",
       "name": "Interval",
       "description": "Create an Observable that emits a sequence of integers spaced by a given time interval"
     },
     {
-      "id": 18,
+      "enum": "JUST",
       "name": "Just",
       "description": "Create an Observable that emits a particular item"
     },
     {
-      "id": 19,
+      "enum": "RANGE",
       "name": "Range",
       "description": "Create an Observable that emits a particular range of sequential integers"
     },
     {
-      "id": 20,
+      "enum": "REPEAT",
       "name": "Repeat",
       "description": "Create an Observable that emits a particular item multiple times"
     },
     {
-      "id": 21,
+      "enum": "TIMER",
       "name": "Timer",
       "description": "Create an Observable that emits a particular item after a given delay"
     }
