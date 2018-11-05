@@ -19,7 +19,7 @@ public class TakeUntilObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable takeUntilObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         The TakeUntil subscribes and begins mirroring the source Observable.

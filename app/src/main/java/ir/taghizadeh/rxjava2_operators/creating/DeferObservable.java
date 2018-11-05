@@ -31,7 +31,7 @@ public class DeferObservable {
         });
     }
 
-    public CompositeDisposable deferObservable() {
+    public CompositeDisposable runOperator() {
 
         value = "secondValue";
         Observable<String> stringObservable = valueObservable();

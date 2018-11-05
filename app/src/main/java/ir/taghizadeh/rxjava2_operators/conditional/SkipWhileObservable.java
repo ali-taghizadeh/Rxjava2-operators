@@ -17,7 +17,7 @@ public class SkipWhileObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable skipWhileObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         The SkipWhile subscribes to the source Observable,

@@ -17,7 +17,7 @@ public class SkipObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable skipObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         You can ignore the first n items emitted by an Observable and attend only to those items that come after,

@@ -19,7 +19,7 @@ public class SkipUntilObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable skipUntilObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         The SkipUntil subscribes to the source Observable, but ignores its emissions until such time as a second Observable emits an item,

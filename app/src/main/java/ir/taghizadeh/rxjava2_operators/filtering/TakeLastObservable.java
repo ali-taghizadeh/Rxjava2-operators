@@ -17,7 +17,7 @@ public class TakeLastObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable takeObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         You can emit only the final n items emitted by an Observable and ignore those items that come before them,

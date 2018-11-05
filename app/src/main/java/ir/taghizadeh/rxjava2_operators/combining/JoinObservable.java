@@ -22,7 +22,7 @@ public class JoinObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable joinObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         The Join operator combines the items emitted by two Observables,

@@ -21,7 +21,7 @@ public class ContainsObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable containsObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         Pass the Contains operator a particular item, and the Observable it returns will emit true if that item is emitted by the source Observable,

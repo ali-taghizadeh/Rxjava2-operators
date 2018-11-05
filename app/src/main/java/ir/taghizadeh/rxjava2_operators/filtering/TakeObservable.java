@@ -17,7 +17,7 @@ public class TakeObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable takeObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         You can emit only the first n items emitted by an Observable and then complete while ignoring the remainder,

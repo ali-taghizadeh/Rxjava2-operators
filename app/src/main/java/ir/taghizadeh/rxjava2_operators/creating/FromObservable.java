@@ -21,7 +21,7 @@ public class FromObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable fromIterable() {
+    public CompositeDisposable runOperator() {
         /*
 
         This operator is another way to create an Observable.

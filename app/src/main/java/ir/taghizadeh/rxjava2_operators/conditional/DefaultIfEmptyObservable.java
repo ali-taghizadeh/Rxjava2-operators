@@ -17,7 +17,7 @@ public class DefaultIfEmptyObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable defaultIfEmptyObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         The DefaultIfEmpty operator simply mirrors the source Observable exactly if the source Observable emits any items.

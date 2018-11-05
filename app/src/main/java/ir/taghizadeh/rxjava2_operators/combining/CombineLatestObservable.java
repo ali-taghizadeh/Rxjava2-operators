@@ -21,7 +21,7 @@ public class CombineLatestObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable combineLatestObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         The CombineLatest operator behaves in a similar way to Zip,

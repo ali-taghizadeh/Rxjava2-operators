@@ -17,7 +17,7 @@ public class RepeatObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable repeatObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         Here we use the just() operator which we used before.

@@ -17,7 +17,7 @@ public class RangeObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable rangeObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         The function takes the starting number and length.

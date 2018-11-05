@@ -19,7 +19,7 @@ public class BufferObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable bufferObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         Buffer will create a window when the first value is produced.

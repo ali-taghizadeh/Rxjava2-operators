@@ -17,7 +17,7 @@ public class MergeObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable mergeObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         You can combine the output of multiple Observables so that they act like a single Observable,

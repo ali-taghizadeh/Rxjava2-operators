@@ -19,7 +19,7 @@ public class SequenceEqualObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable sequenceEqualObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         Pass SequenceEqual two Observables, and it will compare the items emitted by each Observable,

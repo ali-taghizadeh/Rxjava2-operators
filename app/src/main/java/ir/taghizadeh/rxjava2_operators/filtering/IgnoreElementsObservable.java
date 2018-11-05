@@ -17,7 +17,7 @@ public class IgnoreElementsObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable ignoreElementsObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         If you do not care about the items being emitted by an Observable,

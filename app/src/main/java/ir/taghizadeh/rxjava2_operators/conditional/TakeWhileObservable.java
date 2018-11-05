@@ -17,7 +17,7 @@ public class TakeWhileObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable takeWhileObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         The TakeWhile mirrors the source Observable until such time as some condition you specify becomes false,

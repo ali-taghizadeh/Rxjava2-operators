@@ -17,7 +17,7 @@ public class DistinctObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable distinctObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         The Distinct operator filters an Observable by only allowing items through that have not already been emitted.

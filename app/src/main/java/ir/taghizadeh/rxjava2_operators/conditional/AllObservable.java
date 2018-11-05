@@ -21,7 +21,7 @@ public class AllObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable allObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         Pass a predicate function to the All operator that accepts an item emitted by the source Observable and

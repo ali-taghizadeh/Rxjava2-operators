@@ -17,7 +17,7 @@ public class JustObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable justObservable_method1() {
+    public CompositeDisposable runOperator() {
         /*
 
         Here we convert a single string value into an observable that emits that string.

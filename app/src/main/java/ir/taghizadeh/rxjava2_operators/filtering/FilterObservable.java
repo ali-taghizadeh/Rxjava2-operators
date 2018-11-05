@@ -18,7 +18,7 @@ public class FilterObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable filterObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         The Filter operator filters an Observable by only allowing items through that pass a test that you specify in the form of a predicate function.

@@ -19,7 +19,7 @@ public class IntervalObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable intervalObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         Periodically generates an infinite, ever increasing numbers (of type Long).

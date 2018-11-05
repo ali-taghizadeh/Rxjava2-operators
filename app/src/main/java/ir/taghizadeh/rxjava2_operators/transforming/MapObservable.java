@@ -18,7 +18,7 @@ public class MapObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable mapObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         The Map operator applies a function of your choosing to each item emitted by the source Observable,

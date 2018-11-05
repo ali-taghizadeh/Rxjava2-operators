@@ -19,7 +19,7 @@ public class GroupByObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable groupByObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         Here is an animation demonstrating this operator very well :

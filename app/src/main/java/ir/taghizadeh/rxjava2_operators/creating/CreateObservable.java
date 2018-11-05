@@ -23,7 +23,7 @@ public class CreateObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable createObservable_method1() {
+    public CompositeDisposable runOperator() {
         /*
 
         The first way:

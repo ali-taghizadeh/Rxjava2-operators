@@ -23,7 +23,7 @@ public class FlatMapObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable flatMapObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         Observable.flatMap() takes the emissions of one Observable and returns the emissions of another Observable to take its place.

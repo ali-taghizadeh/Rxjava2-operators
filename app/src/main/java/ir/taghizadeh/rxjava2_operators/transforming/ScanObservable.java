@@ -18,7 +18,7 @@ public class ScanObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable scanObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         This operator Transforms each item into another item, like you did with map.

@@ -20,7 +20,7 @@ public class AmbObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable ambObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         When you pass a number of source Observables to Amb, it will pass through the emissions and notifications of exactly one of these Observables:

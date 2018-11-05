@@ -19,7 +19,7 @@ public class ZipObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable zipObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         It applies this function in strict sequence,

@@ -17,7 +17,7 @@ public class ConcatObservable {
 
     private CompositeDisposable compositeDisposable;
 
-    public CompositeDisposable concatObservable() {
+    public CompositeDisposable runOperator() {
         /*
 
         The Concat operator concatenates the output of multiple Observables so that they act like a single Observable,
