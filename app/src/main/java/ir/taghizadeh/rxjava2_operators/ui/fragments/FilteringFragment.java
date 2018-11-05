@@ -43,7 +43,7 @@ public class FilteringFragment extends Fragment {
         gson = new GsonBuilder().create();
         jsonHelper = new JsonHelper();
         Model_Data model_data = gson.fromJson(jsonHelper.LoadJSONFromAsset("FilteringObservable.json", getActivity()), Model_Data.class);
-        Adapter adapter = new Adapter(model_data);
+        Adapter adapter = new Adapter(model_data, getActivity());
         rv_filtering.setAdapter(adapter);
     }
 
