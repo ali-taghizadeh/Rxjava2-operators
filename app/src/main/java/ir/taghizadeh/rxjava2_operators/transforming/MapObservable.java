@@ -5,6 +5,7 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Function;
+import ir.taghizadeh.rxjava2_operators.utils.Operators;
 
 /**
  * <h1>Map</h1>
@@ -14,7 +15,7 @@ import io.reactivex.functions.Function;
  * @see <a href="http://reactivex.io/documentation/operators/map.html">Reactivex</a>
  */
 
-public class MapObservable {
+public class MapObservable implements Operators {
 
     private CompositeDisposable compositeDisposable;
 

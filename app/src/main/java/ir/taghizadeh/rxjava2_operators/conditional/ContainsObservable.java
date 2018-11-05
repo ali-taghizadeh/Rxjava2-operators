@@ -8,6 +8,7 @@ import io.reactivex.Observable;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
+import ir.taghizadeh.rxjava2_operators.utils.Operators;
 
 /**
  * <h1>Contains</h1>
@@ -17,7 +18,7 @@ import io.reactivex.disposables.Disposable;
  * @see <a href="http://reactivex.io/documentation/operators/contains.html">Reactivex</a>
  */
 
-public class ContainsObservable {
+public class ContainsObservable implements Operators {
 
     private CompositeDisposable compositeDisposable;
 

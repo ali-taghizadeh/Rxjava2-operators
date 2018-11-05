@@ -5,6 +5,7 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Predicate;
+import ir.taghizadeh.rxjava2_operators.utils.Operators;
 
 /**
  * <h1>Filter</h1>
@@ -14,7 +15,7 @@ import io.reactivex.functions.Predicate;
  * @see <a href="http://reactivex.io/documentation/operators/filter.html">Reactivex</a>
  */
 
-public class FilterObservable {
+public class FilterObservable implements Operators {
 
     private CompositeDisposable compositeDisposable;
 

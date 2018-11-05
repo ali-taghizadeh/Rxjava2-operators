@@ -8,6 +8,7 @@ import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
+import ir.taghizadeh.rxjava2_operators.utils.Operators;
 
 /**
  * <h1>Join</h1>
@@ -18,7 +19,7 @@ import io.reactivex.disposables.Disposable;
  * @see <a href="http://reactivex.io/documentation/operators/join.html">Reactivex</a>
  */
 
-public class JoinObservable {
+public class JoinObservable implements Operators {
 
     private CompositeDisposable compositeDisposable;
 

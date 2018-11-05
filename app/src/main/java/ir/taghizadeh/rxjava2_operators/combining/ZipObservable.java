@@ -5,6 +5,7 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.BiFunction;
+import ir.taghizadeh.rxjava2_operators.utils.Operators;
 
 /**
  * <h1>Zip</h1>
@@ -15,7 +16,7 @@ import io.reactivex.functions.BiFunction;
  * @see <a href="http://reactivex.io/documentation/operators/zip.html">Reactivex</a>
  */
 
-public class ZipObservable {
+public class ZipObservable implements Operators {
 
     private CompositeDisposable compositeDisposable;
 

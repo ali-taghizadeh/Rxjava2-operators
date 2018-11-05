@@ -4,6 +4,7 @@ import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
+import ir.taghizadeh.rxjava2_operators.utils.Operators;
 
 /**
  * <h1>Take</h1>
@@ -13,7 +14,7 @@ import io.reactivex.disposables.Disposable;
  * @see <a href="http://reactivex.io/documentation/operators/take.html">Reactivex</a>
  */
 
-public class TakeObservable {
+public class TakeObservable implements Operators {
 
     private CompositeDisposable compositeDisposable;
 

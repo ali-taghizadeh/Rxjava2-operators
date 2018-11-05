@@ -4,6 +4,7 @@ import io.reactivex.CompletableObserver;
 import io.reactivex.Observable;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
+import ir.taghizadeh.rxjava2_operators.utils.Operators;
 
 /**
  * <h1>IgnoreElements</h1>
@@ -13,7 +14,7 @@ import io.reactivex.disposables.Disposable;
  * @see <a href="http://reactivex.io/documentation/operators/ignoreelements.html">Reactivex</a>
  */
 
-public class IgnoreElementsObservable {
+public class IgnoreElementsObservable implements Operators {
 
     private CompositeDisposable compositeDisposable;
 

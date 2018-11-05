@@ -6,6 +6,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Function;
 import io.reactivex.observables.GroupedObservable;
+import ir.taghizadeh.rxjava2_operators.utils.Operators;
 
 /**
  * <h1>GroupBy</h1>
@@ -15,7 +16,7 @@ import io.reactivex.observables.GroupedObservable;
  * @see <a href="http://reactivex.io/documentation/operators/groupby.html">Reactivex</a>
  */
 
-public class GroupByObservable {
+public class GroupByObservable implements Operators {
 
     private CompositeDisposable compositeDisposable;
 

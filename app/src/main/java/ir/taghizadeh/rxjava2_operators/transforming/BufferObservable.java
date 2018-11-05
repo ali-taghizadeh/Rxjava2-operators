@@ -6,6 +6,7 @@ import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
+import ir.taghizadeh.rxjava2_operators.utils.Operators;
 
 /**
  * <h1>Buffer</h1>
@@ -15,7 +16,7 @@ import io.reactivex.disposables.Disposable;
  * @see <a href="http://reactivex.io/documentation/operators/buffer.html">Reactivex</a>
  */
 
-public class BufferObservable {
+public class BufferObservable implements Operators {
 
     private CompositeDisposable compositeDisposable;
 

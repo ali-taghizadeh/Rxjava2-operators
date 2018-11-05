@@ -5,6 +5,7 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.BiFunction;
+import ir.taghizadeh.rxjava2_operators.utils.Operators;
 
 /**
  * <h1>Scan</h1>
@@ -14,7 +15,7 @@ import io.reactivex.functions.BiFunction;
  * @see <a href="http://reactivex.io/documentation/operators/scan.html">Reactivex</a>
  */
 
-public class ScanObservable {
+public class ScanObservable implements Operators {
 
     private CompositeDisposable compositeDisposable;
 

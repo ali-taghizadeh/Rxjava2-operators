@@ -4,8 +4,8 @@ import com.google.gson.annotations.SerializedName;
 
 public class Model {
 
-    @SerializedName("id")
-    private int id;
+    @SerializedName("enum")
+    private String enums;
 
     @SerializedName("name")
     private String name;
@@ -13,8 +13,8 @@ public class Model {
     @SerializedName("description")
     private String description;
 
-    public int getId() {
-        return id;
+    public String getEnums() {
+        return enums;
     }
 
     public String getName() {
