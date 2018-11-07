@@ -37,7 +37,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginTop="16dp"
             android:backgroundTint="@color/colorPrimary"
-            android:text="@string/run"
+            android:text="@string/button_run"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
