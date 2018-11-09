@@ -7,9 +7,16 @@ import java.util.List;
 public class Model_Data {
 
     @SerializedName("operators")
-    private List<Model> modelList;
+    private List<Model> operators_modelList;
 
-    public List<Model> getModelList() {
-        return modelList;
+    @SerializedName("samples")
+    private List<Model> samples_modelList;
+
+    public List<Model> getOperators_modelList() {
+        return operators_modelList;
+    }
+
+    public List<Model> getSamples_modelList() {
+        return samples_modelList;
     }
 }

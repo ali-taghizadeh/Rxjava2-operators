@@ -1,5 +1,6 @@
 package ir.taghizadeh.rxjava2_operators.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -8,11 +9,14 @@ import android.support.v7.app.AppCompatActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+import butterknife.Unbinder;
 import ir.taghizadeh.rxjava2_operators.R;
 import ir.taghizadeh.rxjava2_operators.ui.fragments.OperatorsFragment;
 
 public class HomeActivity extends AppCompatActivity {
 
+    Unbinder unbinder;
     @BindView(R.id.bottom_navigation)
     BottomNavigationView bottom_navigation;
 
@@ -20,7 +24,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        ButterKnife.bind(this);
+        unbinder = ButterKnife.bind(this);
         initNavigationBar();
     }
 
@@ -67,5 +71,17 @@ public class HomeActivity extends AppCompatActivity {
             }
             return true;
         });
+    }
+
+    @OnClick(R.id.button_samples)
+    void samplesPage(){
+        Intent intent = new Intent(this, SamplesActivity.class);
+        this.startActivity(intent);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbinder.unbind();
     }
 }

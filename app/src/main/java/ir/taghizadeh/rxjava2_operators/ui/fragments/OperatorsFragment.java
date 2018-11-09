@@ -83,7 +83,7 @@ public class OperatorsFragment extends Fragment {
                 text_title_operators.setText(getString(R.string.observable_conditional));
                 break;
         }
-        Adapter adapter = new Adapter(model_data);
+        Adapter adapter = new Adapter(model_data, getString(R.string.operators));
         rv_operators.setAdapter(adapter);
     }
 

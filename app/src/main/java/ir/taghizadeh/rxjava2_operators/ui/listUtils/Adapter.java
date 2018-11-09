@@ -39,9 +39,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     private Model_Data modelList;
     private Context context;
+    private String source;
 
-    public Adapter(Model_Data models) {
+    public Adapter(Model_Data models, String source) {
         modelList = models;
+        this.source = source;
     }
 
     @NonNull
@@ -49,28 +51,36 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     public Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         this.context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-        View contactView = inflater.inflate(R.layout.item, parent, false);
-        return new ViewHolder(contactView);
+        View view = inflater.inflate(R.layout.item, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull Adapter.ViewHolder viewHolder, int position) {
-        Model model = modelList.getModelList().get(position);
+        Model model;
         TextView text_title = viewHolder.text_item_title;
         TextView text_description = viewHolder.text_item_description;
         Button button_item_run = viewHolder.button_item_run;
+
+        if (source.equals(context.getString(R.string.operators))) {
+            model = modelList.getOperators_modelList().get(position);
+            Model finalModel = model;
+            button_item_run.setOnClickListener(view -> {
+                Operators operators = EnumOperators.valueOf(finalModel.getEnums()).createOperator();
+                compositeDisposable = operators.runOperator();
+                new AlertDialog.Builder(context)
+                        .setTitle(finalModel.getName())
+                        .setMessage(context.getString(R.string.dialog_message, finalModel.getName()))
+                        .setPositiveButton("STOP", (dialog, which) -> dispose())
+                        .setCancelable(false)
+                        .show();
+            });
+        }else {
+            model = modelList.getSamples_modelList().get(position);
+            button_item_run.setVisibility(View.GONE);
+        }
         text_title.setText(model.getName());
         text_description.setText(model.getDescription());
-        button_item_run.setOnClickListener(view -> {
-            Operators operators = EnumOperators.valueOf(model.getEnums()).createOperator();
-            compositeDisposable = operators.runOperator();
-            new AlertDialog.Builder(context)
-                    .setTitle(model.getName())
-                    .setMessage(context.getString(R.string.dialog_message, model.getName()))
-                    .setPositiveButton("STOP", (dialog, which) -> dispose())
-                    .setCancelable(false)
-                    .show();
-        });
     }
 
     private void dispose() {
@@ -81,6 +91,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return modelList.getModelList().size();
+        int size;
+        if (source.equals("operators"))
+            size = modelList.getOperators_modelList().size();
+        else
+            size = modelList.getSamples_modelList().size();
+        return size;
     }
 }

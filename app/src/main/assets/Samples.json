@@ -1,0 +1,9 @@
+{
+  "samples": [
+    {
+      "enum": "CLICK_COUNTER",
+      "name": "Click counter",
+      "description": ""
+    }
+  ]
+}

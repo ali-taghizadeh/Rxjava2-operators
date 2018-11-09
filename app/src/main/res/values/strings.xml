@@ -7,7 +7,9 @@
     <string name="observable_combining">Combining</string>
     <string name="observable_conditional">Conditional</string>
     <string name="button_run">Run</string>
-    <string name="dialog_message">Emitted items from %1$s operator sample is printing to the logcat</string>
+    <string name="dialog_message">Emitted items from %1$s operator sample are printing to the logcat</string>
     <string name="button_why_rx">why rx</string>
     <string name="source">source</string>
+    <string name="operators">operators</string>
+    <string name="samples">samples</string>
 </resources>
