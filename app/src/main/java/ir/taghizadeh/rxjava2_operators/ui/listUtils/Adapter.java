@@ -35,21 +35,19 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
-
     }
 
     private Model_Data modelList;
     private Context context;
 
-    public Adapter(Model_Data models, Context context) {
+    public Adapter(Model_Data models) {
         modelList = models;
-        this.context = context;
     }
 
     @NonNull
     @Override
     public Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Context context = parent.getContext();
+        this.context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
         View contactView = inflater.inflate(R.layout.item, parent, false);
         return new ViewHolder(contactView);
@@ -73,7 +71,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                     .setCancelable(false)
                     .show();
         });
-
     }
 
     private void dispose() {

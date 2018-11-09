@@ -9,4 +9,5 @@
     <string name="button_run">Run</string>
     <string name="dialog_message">Emitted items from %1$s operator sample is printing to the logcat</string>
     <string name="button_why_rx">why rx</string>
+    <string name="source">source</string>
 </resources>
