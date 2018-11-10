@@ -12,4 +12,6 @@
     <string name="source">source</string>
     <string name="operators">operators</string>
     <string name="samples">samples</string>
+    <string name="event_counter">Event counter</string>
+    <string name="taps">%d Taps</string>
 </resources>

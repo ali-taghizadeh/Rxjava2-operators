@@ -1,8 +1,11 @@
 package ir.taghizadeh.rxjava2_operators.ui.listUtils;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +19,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import ir.taghizadeh.rxjava2_operators.R;
 import ir.taghizadeh.rxjava2_operators.ui.model.Model;
 import ir.taghizadeh.rxjava2_operators.ui.model.Model_Data;
+import ir.taghizadeh.rxjava2_operators.utils.EnumActivities;
 import ir.taghizadeh.rxjava2_operators.utils.EnumOperators;
 import ir.taghizadeh.rxjava2_operators.utils.Operators;
 
@@ -30,6 +34,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         TextView text_item_description;
         @BindView(R.id.button_item_run)
         Button button_item_run;
+        @BindView(R.id.card_item)
+        CardView card_item;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -61,6 +67,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         TextView text_title = viewHolder.text_item_title;
         TextView text_description = viewHolder.text_item_description;
         Button button_item_run = viewHolder.button_item_run;
+        CardView card_item = viewHolder.card_item;
 
         if (source.equals(context.getString(R.string.operators))) {
             model = modelList.getOperators_modelList().get(position);
@@ -78,6 +85,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         }else {
             model = modelList.getSamples_modelList().get(position);
             button_item_run.setVisibility(View.GONE);
+            card_item.setOnClickListener(view -> {
+                Activity activity = EnumActivities.valueOf(model.getEnums()).getActivity();
+                Intent intent = new Intent(context, activity.getClass());
+                context.startActivity(intent);
+            });
         }
         text_title.setText(model.getName());
         text_description.setText(model.getDescription());

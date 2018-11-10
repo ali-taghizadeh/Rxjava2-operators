@@ -18,6 +18,7 @@
         </activity>
 
         <activity android:name=".ui.activity.SamplesActivity" />
+        <activity android:name=".ui.activity.samples.EventCounterActivity" />
 
     </application>
 </manifest>

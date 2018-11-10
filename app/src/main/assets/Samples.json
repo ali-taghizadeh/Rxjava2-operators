@@ -1,9 +1,9 @@
 {
   "samples": [
     {
-      "enum": "CLICK_COUNTER",
-      "name": "Click counter",
-      "description": ""
+      "enum": "EVENT_COUNTER",
+      "name": "Event counter",
+      "description": "With the combination of map and buffer operators we count the number of clicks on a button within 2 seconds"
     }
   ]
 }
