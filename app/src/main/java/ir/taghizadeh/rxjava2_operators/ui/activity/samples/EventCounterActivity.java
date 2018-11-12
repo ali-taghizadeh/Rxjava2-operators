@@ -24,7 +24,7 @@ import ir.taghizadeh.rxjava2_operators.R;
 
 public class EventCounterActivity extends AppCompatActivity {
 
-    /*
+/*
 
     With the combination of map and buffer operators we count the number of clicks on a button
     within 2 seconds
@@ -38,20 +38,8 @@ public class EventCounterActivity extends AppCompatActivity {
     Button button_event_counter;
     @BindView(R.id.text_event_counter)
     TextView text_event_counter;
-
-    private Disposable disposable;
     Animation animation;
-    @Override
-    protected void onPause() {
-        super.onPause();
-        disposable.dispose();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        disposable = getDisposable();
-    }
+    private Disposable disposable;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,7 +48,6 @@ public class EventCounterActivity extends AppCompatActivity {
         unbinder = ButterKnife.bind(this);
         button_samples.setVisibility(View.GONE);
     }
-
 
     private Disposable getDisposable() {
         return RxView.clicks(button_event_counter)
@@ -91,6 +78,18 @@ public class EventCounterActivity extends AppCompatActivity {
         animation = AnimationUtils.loadAnimation(this, R.anim.scale);
         text_event_counter.setText(String.format(getString(R.string.taps), size));
         text_event_counter.setAnimation(animation);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        disposable.dispose();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        disposable = getDisposable();
     }
 
     @Override

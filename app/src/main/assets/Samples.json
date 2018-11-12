@@ -9,6 +9,11 @@
       "enum": "SMART_FORM",
       "name": "Smart form",
       "description": "CombineLatest operator helps to create a smarter login form"
+    },
+    {
+      "enum": "TYPING_INDICATOR",
+      "name": "Typing indicator",
+      "description": "This sample is very useful when you're building a chat application. Here we show the typing indicator if there are at least two characters and user keeps typing each character within three seconds."
     }
   ]
 }

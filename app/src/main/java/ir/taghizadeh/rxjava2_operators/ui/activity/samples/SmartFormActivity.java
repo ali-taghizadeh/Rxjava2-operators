@@ -18,6 +18,12 @@ import ir.taghizadeh.rxjava2_operators.R;
 
 public class SmartFormActivity extends AppCompatActivity {
 
+/*
+
+    CombineLatest operator helps to create a smarter login form
+
+*/
+
     Unbinder unbinder;
     @BindView(R.id.button_samples)
     Button button_samples;
@@ -28,18 +34,6 @@ public class SmartFormActivity extends AppCompatActivity {
     @BindView(R.id.button_login)
     Button button_login;
     private Disposable validationDisposable;
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        validationDisposable.dispose();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        validationDisposable = getValidationDisposable();
-    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -72,6 +66,18 @@ public class SmartFormActivity extends AppCompatActivity {
         } else {
             return charSequence.toString().matches("^(?=.*\\d).{4,8}$");
         }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        validationDisposable.dispose();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        validationDisposable = getValidationDisposable();
     }
 
     @Override
