@@ -1,39 +1,37 @@
-{
-  "operators": [
-    {
-      "enum": "DISTINCT",
-      "name": "Distinct",
-      "description": "Suppress duplicate items emitted by an Observable"
-    },
-    {
-      "enum": "FILTER",
-      "name": "Filter",
-      "description": "Emit only those items from an Observable that pass a predicate test"
-    },
-    {
-      "enum": "IGNORE_ELEMENTS",
-      "name": "IgnoreElements",
-      "description": "Do not emit any items from an Observable but mirror its termination notification"
-    },
-    {
-      "enum": "SKIP_LAST",
-      "name": "SkipLast",
-      "description": "Suppress the last n items emitted by an Observable"
-    },
-    {
-      "enum": "SKIP",
-      "name": "Skip",
-      "description": "Suppress the first n items emitted by an Observable"
-    },
-    {
-      "enum": "TAKE_LAST",
-      "name": "TakeLast",
-      "description": "Emit only the last n items emitted by an Observable"
-    },
-    {
-      "enum": "TAKE",
-      "name": "Take",
-      "description": "Emit only the first n items emitted by an Observable"
-    }
-  ]
-}
+[
+  {
+    "enum": "DISTINCT",
+    "name": "Distinct",
+    "description": "Suppress duplicate items emitted by an Observable"
+  },
+  {
+    "enum": "FILTER",
+    "name": "Filter",
+    "description": "Emit only those items from an Observable that pass a predicate test"
+  },
+  {
+    "enum": "IGNORE_ELEMENTS",
+    "name": "IgnoreElements",
+    "description": "Do not emit any items from an Observable but mirror its termination notification"
+  },
+  {
+    "enum": "SKIP_LAST",
+    "name": "SkipLast",
+    "description": "Suppress the last n items emitted by an Observable"
+  },
+  {
+    "enum": "SKIP",
+    "name": "Skip",
+    "description": "Suppress the first n items emitted by an Observable"
+  },
+  {
+    "enum": "TAKE_LAST",
+    "name": "TakeLast",
+    "description": "Emit only the last n items emitted by an Observable"
+  },
+  {
+    "enum": "TAKE",
+    "name": "Take",
+    "description": "Emit only the first n items emitted by an Observable"
+  }
+]

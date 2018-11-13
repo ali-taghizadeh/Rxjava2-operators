@@ -13,16 +13,19 @@ import android.widget.Button;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.util.Arrays;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import ir.taghizadeh.rxjava2_operators.R;
 import ir.taghizadeh.rxjava2_operators.ui.listUtils.Adapter;
-import ir.taghizadeh.rxjava2_operators.ui.model.Model_Data;
+import ir.taghizadeh.rxjava2_operators.ui.model.Model;
 import ir.taghizadeh.rxjava2_operators.utils.EnumActivities;
 import ir.taghizadeh.rxjava2_operators.utils.JsonHelper;
 
-public class SamplesActivity extends AppCompatActivity{
+public class SamplesActivity extends AppCompatActivity {
 
     Unbinder unbinder;
     @BindView(R.id.rv_samples)
@@ -38,21 +41,24 @@ public class SamplesActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_samples);
         unbinder = ButterKnife.bind(this);
-        button_samples.setVisibility(View.GONE);
-        initRecyclerView();
+        setupUI();
     }
 
-    private void initRecyclerView() {
+    private void setupUI() {
+        button_samples.setVisibility(View.GONE);
         rv_samples.setLayoutManager(new LinearLayoutManager(this));
         gson = new GsonBuilder().create();
         jsonHelper = new JsonHelper();
-        Model_Data model_data = gson.fromJson(jsonHelper.LoadJSONFromAsset("Samples.json", this), Model_Data.class);
-        Adapter adapter = new Adapter(model_data, getString(R.string.samples), (v, position, model) -> {
-            Activity activity = EnumActivities.valueOf(model.getEnums()).getActivity();
-            Intent intent = new Intent(v.getContext(), activity.getClass());
-            v.getContext().startActivity(intent);
-        });
+        Model[] modelArray = gson.fromJson(jsonHelper.LoadJSONFromAsset("Samples.json", this), Model[].class);
+        List<Model> model = Arrays.asList(modelArray);
+        Adapter adapter = new Adapter(model, getString(R.string.samples), (v, position, model1) -> rowTapped(v, model1));
         rv_samples.setAdapter(adapter);
+    }
+
+    private void rowTapped(View v, Model model1) {
+        Activity activity = EnumActivities.valueOf(model1.getEnums()).getActivity();
+        Intent intent = new Intent(v.getContext(), activity.getClass());
+        v.getContext().startActivity(intent);
     }
 
     @Override

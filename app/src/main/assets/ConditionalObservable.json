@@ -1,49 +1,47 @@
-{
-  "operators": [
-    {
-      "enum": "ALL",
-      "name": "All",
-      "description": "Determine whether all items emitted by an Observable meet some criteria"
-    },
-    {
-      "enum": "AMB",
-      "name": "Amb",
-      "description": "Given two or more source Observables, emit all of the items from only the first of these Observables to emit an item or notification"
-    },
-    {
-      "enum": "CONTAINS",
-      "name": "Contains",
-      "description": "Determine whether an Observable emits a particular item or not"
-    },
-    {
-      "enum": "DEFAULT_IF_EMPTY",
-      "name": "DefaultIfEmpty",
-      "description": "Emit items from the source Observable, or a default item if the source Observable emits nothing"
-    },
-    {
-      "enum": "SEQUENCE_EQUAL",
-      "name": "SequenceEqual",
-      "description": "Determine whether two Observables emit the same sequence of items"
-    },
-    {
-      "enum": "SKIP_UNTIL",
-      "name": "SkipUntil",
-      "description": "Discard items emitted by an Observable until a second Observable emits an item"
-    },
-    {
-      "enum": "SKIP_WHILE",
-      "name": "SkipWhile",
-      "description": "Discard items emitted by an Observable until a specified condition becomes false"
-    },
-    {
-      "enum": "TAKE_UNTIL",
-      "name": "TakeUntil",
-      "description": "Discard any items emitted by an Observable after a second Observable emits an item or terminates"
-    },
-    {
-      "enum": "TAKE_WHILE",
-      "name": "TakeWhile",
-      "description": "Mirror items emitted by an Observable until a specified condition becomes false"
-    }
-  ]
-}
+[
+  {
+    "enum": "ALL",
+    "name": "All",
+    "description": "Determine whether all items emitted by an Observable meet some criteria"
+  },
+  {
+    "enum": "AMB",
+    "name": "Amb",
+    "description": "Given two or more source Observables, emit all of the items from only the first of these Observables to emit an item or notification"
+  },
+  {
+    "enum": "CONTAINS",
+    "name": "Contains",
+    "description": "Determine whether an Observable emits a particular item or not"
+  },
+  {
+    "enum": "DEFAULT_IF_EMPTY",
+    "name": "DefaultIfEmpty",
+    "description": "Emit items from the source Observable, or a default item if the source Observable emits nothing"
+  },
+  {
+    "enum": "SEQUENCE_EQUAL",
+    "name": "SequenceEqual",
+    "description": "Determine whether two Observables emit the same sequence of items"
+  },
+  {
+    "enum": "SKIP_UNTIL",
+    "name": "SkipUntil",
+    "description": "Discard items emitted by an Observable until a second Observable emits an item"
+  },
+  {
+    "enum": "SKIP_WHILE",
+    "name": "SkipWhile",
+    "description": "Discard items emitted by an Observable until a specified condition becomes false"
+  },
+  {
+    "enum": "TAKE_UNTIL",
+    "name": "TakeUntil",
+    "description": "Discard any items emitted by an Observable after a second Observable emits an item or terminates"
+  },
+  {
+    "enum": "TAKE_WHILE",
+    "name": "TakeWhile",
+    "description": "Mirror items emitted by an Observable until a specified condition becomes false"
+  }
+]

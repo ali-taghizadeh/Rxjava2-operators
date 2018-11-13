@@ -1,44 +1,42 @@
-{
-  "operators": [
-    {
-      "enum": "CREATE",
-      "name": "Create",
-      "description": "Create an Observable from scratch by means of a function"
-    },
-    {
-      "enum": "DEFER",
-      "name": "Defer",
-      "description": "Do not create the Observable until the observer subscribes, and create a fresh Observable for each observer"
-    },
-    {
-      "enum": "FROM",
-      "name": "From",
-      "description": "Convert various other objects and data types into Observables"
-    },
-    {
-      "enum": "INTERVAL",
-      "name": "Interval",
-      "description": "Create an Observable that emits a sequence of integers spaced by a given time interval"
-    },
-    {
-      "enum": "JUST",
-      "name": "Just",
-      "description": "Create an Observable that emits a particular item"
-    },
-    {
-      "enum": "RANGE",
-      "name": "Range",
-      "description": "Create an Observable that emits a particular range of sequential integers"
-    },
-    {
-      "enum": "REPEAT",
-      "name": "Repeat",
-      "description": "Create an Observable that emits a particular item multiple times"
-    },
-    {
-      "enum": "TIMER",
-      "name": "Timer",
-      "description": "Create an Observable that emits a particular item after a given delay"
-    }
-  ]
-}
+[
+  {
+    "enum": "CREATE",
+    "name": "Create",
+    "description": "Create an Observable from scratch by means of a function"
+  },
+  {
+    "enum": "DEFER",
+    "name": "Defer",
+    "description": "Do not create the Observable until the observer subscribes, and create a fresh Observable for each observer"
+  },
+  {
+    "enum": "FROM",
+    "name": "From",
+    "description": "Convert various other objects and data types into Observables"
+  },
+  {
+    "enum": "INTERVAL",
+    "name": "Interval",
+    "description": "Create an Observable that emits a sequence of integers spaced by a given time interval"
+  },
+  {
+    "enum": "JUST",
+    "name": "Just",
+    "description": "Create an Observable that emits a particular item"
+  },
+  {
+    "enum": "RANGE",
+    "name": "Range",
+    "description": "Create an Observable that emits a particular range of sequential integers"
+  },
+  {
+    "enum": "REPEAT",
+    "name": "Repeat",
+    "description": "Create an Observable that emits a particular item multiple times"
+  },
+  {
+    "enum": "TIMER",
+    "name": "Timer",
+    "description": "Create an Observable that emits a particular item after a given delay"
+  }
+]
