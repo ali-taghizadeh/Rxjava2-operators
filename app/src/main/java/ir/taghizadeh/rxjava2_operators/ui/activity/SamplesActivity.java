@@ -1,5 +1,7 @@
 package ir.taghizadeh.rxjava2_operators.ui.activity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +19,7 @@ import butterknife.Unbinder;
 import ir.taghizadeh.rxjava2_operators.R;
 import ir.taghizadeh.rxjava2_operators.ui.listUtils.Adapter;
 import ir.taghizadeh.rxjava2_operators.ui.model.Model_Data;
+import ir.taghizadeh.rxjava2_operators.utils.EnumActivities;
 import ir.taghizadeh.rxjava2_operators.utils.JsonHelper;
 
 public class SamplesActivity extends AppCompatActivity{
@@ -44,7 +47,11 @@ public class SamplesActivity extends AppCompatActivity{
         gson = new GsonBuilder().create();
         jsonHelper = new JsonHelper();
         Model_Data model_data = gson.fromJson(jsonHelper.LoadJSONFromAsset("Samples.json", this), Model_Data.class);
-        Adapter adapter = new Adapter(model_data, getString(R.string.samples));
+        Adapter adapter = new Adapter(model_data, getString(R.string.samples), (v, position, model) -> {
+            Activity activity = EnumActivities.valueOf(model.getEnums()).getActivity();
+            Intent intent = new Intent(v.getContext(), activity.getClass());
+            v.getContext().startActivity(intent);
+        });
         rv_samples.setAdapter(adapter);
     }
 

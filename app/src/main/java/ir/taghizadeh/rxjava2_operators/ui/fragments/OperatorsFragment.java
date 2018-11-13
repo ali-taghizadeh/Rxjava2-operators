@@ -3,6 +3,7 @@ package ir.taghizadeh.rxjava2_operators.ui.fragments;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,14 +17,20 @@ import com.google.gson.GsonBuilder;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import io.reactivex.disposables.CompositeDisposable;
 import ir.taghizadeh.rxjava2_operators.R;
 import ir.taghizadeh.rxjava2_operators.ui.listUtils.Adapter;
 import ir.taghizadeh.rxjava2_operators.ui.model.Model_Data;
+import ir.taghizadeh.rxjava2_operators.utils.EnumOperators;
 import ir.taghizadeh.rxjava2_operators.utils.JsonHelper;
+import ir.taghizadeh.rxjava2_operators.utils.Operators;
 
 public class OperatorsFragment extends Fragment {
 
     private Unbinder unbinder;
+
+    private CompositeDisposable compositeDisposable;
+
     Gson gson;
     JsonHelper jsonHelper;
     String source;
@@ -83,8 +90,24 @@ public class OperatorsFragment extends Fragment {
                 text_title_operators.setText(getString(R.string.observable_conditional));
                 break;
         }
-        Adapter adapter = new Adapter(model_data, getString(R.string.operators));
+        Adapter adapter = new Adapter(model_data, getString(R.string.operators), (v, position, model) -> {
+            Operators operators = EnumOperators.valueOf(model.getEnums()).createOperator();
+            compositeDisposable = operators.runOperator();
+            new AlertDialog.Builder(v.getContext())
+                    .setTitle(model.getName())
+                    .setMessage(v.getContext().getString(R.string.dialog_message, model.getName()))
+                    .setPositiveButton(v.getContext().getString(R.string.stop), (dialog, which) -> dispose())
+                    .setCancelable(false)
+                    .show();
+        });
         rv_operators.setAdapter(adapter);
+    }
+
+
+    private void dispose() {
+        if (compositeDisposable != null && !compositeDisposable.isDisposed()) {
+            compositeDisposable.clear();
+        }
     }
 
     @Override
