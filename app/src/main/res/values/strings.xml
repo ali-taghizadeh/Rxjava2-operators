@@ -19,4 +19,6 @@
     <string name="login">Login</string>
     <string name="type_here">Type here</string>
     <string name="user_is_typing">User is typing</string>
+    <string name="search_here">Search here</string>
+    <string name="search_for">Search for :</string>
 </resources>

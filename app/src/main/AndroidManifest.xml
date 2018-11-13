@@ -21,6 +21,7 @@
         <activity android:name=".ui.activity.samples.EventCounterActivity" />
         <activity android:name=".ui.activity.samples.SmartFormActivity" />
         <activity android:name=".ui.activity.samples.TypingIndicatorActivity" />
+        <activity android:name=".ui.activity.samples.SearchViewActivity" />
 
     </application>
 </manifest>
