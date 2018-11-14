@@ -3,7 +3,6 @@ package ir.taghizadeh.rxjava2_operators.ui.activity.samples;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -31,9 +30,6 @@ public class EventCounterActivity extends AppCompatActivity {
 
 */
     Unbinder unbinder;
-
-    @BindView(R.id.button_samples)
-    Button button_samples;
     @BindView(R.id.button_event_counter)
     Button button_event_counter;
     @BindView(R.id.text_event_counter)
@@ -46,7 +42,6 @@ public class EventCounterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_counter);
         unbinder = ButterKnife.bind(this);
-        button_samples.setVisibility(View.GONE);
     }
 
     private Disposable getDisposable() {

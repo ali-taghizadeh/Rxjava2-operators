@@ -3,8 +3,6 @@ package ir.taghizadeh.rxjava2_operators.ui.activity.samples;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -30,8 +28,6 @@ public class TypingIndicatorActivity extends AppCompatActivity {
 */
 
     Unbinder unbinder;
-    @BindView(R.id.button_samples)
-    Button button_samples;
     @BindView(R.id.text_typing_indicator)
     TextView text_typing_indicator;
     @BindView(R.id.et_chat)
@@ -43,7 +39,6 @@ public class TypingIndicatorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_typing_indicator);
         unbinder = ButterKnife.bind(this);
-        button_samples.setVisibility(View.GONE);
     }
 
     private Disposable getTypingIndicatorDisposable() {

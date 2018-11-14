@@ -17,6 +17,11 @@
   {
     "enum": "SEARCH_VIEW",
     "name": "SearchView",
-    "description": "This sample helps you to create an intelligent searchView which gives you a couple of moments to complete your words, instead of taking action on every single character."
+    "description": "This sample helps you to create an intelligent searchView which gives the user a couple of moments to complete his/her search keywords, instead of taking action on every single character."
+  },
+  {
+    "enum": "TIMING",
+    "name": "Timing",
+    "description": "This sample is consist of some super simple ways of timing between operations"
   }
 ]

@@ -5,6 +5,7 @@ import android.app.Activity;
 import ir.taghizadeh.rxjava2_operators.ui.activity.samples.EventCounterActivity;
 import ir.taghizadeh.rxjava2_operators.ui.activity.samples.SearchViewActivity;
 import ir.taghizadeh.rxjava2_operators.ui.activity.samples.SmartFormActivity;
+import ir.taghizadeh.rxjava2_operators.ui.activity.samples.TimingActivity;
 import ir.taghizadeh.rxjava2_operators.ui.activity.samples.TypingIndicatorActivity;
 
 public enum EnumActivities {
@@ -31,6 +32,12 @@ public enum EnumActivities {
         @Override
         public Activity getActivity(){
             return new SearchViewActivity();
+        }
+    },
+    TIMING {
+        @Override
+        public Activity getActivity(){
+            return new TimingActivity();
         }
     };
     public abstract Activity getActivity();

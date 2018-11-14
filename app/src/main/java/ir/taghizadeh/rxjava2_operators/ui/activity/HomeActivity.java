@@ -6,6 +6,8 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -17,6 +19,8 @@ import ir.taghizadeh.rxjava2_operators.ui.fragments.OperatorsFragment;
 public class HomeActivity extends AppCompatActivity {
 
     Unbinder unbinder;
+    @BindView(R.id.button_samples)
+    Button button_samples;
     @BindView(R.id.bottom_navigation)
     BottomNavigationView bottom_navigation;
 
@@ -25,6 +29,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         unbinder = ButterKnife.bind(this);
+        button_samples.setVisibility(View.VISIBLE);
         initNavigationBar();
     }
 

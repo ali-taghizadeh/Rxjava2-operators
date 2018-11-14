@@ -22,4 +22,7 @@
     <string name="search_here">Search here</string>
     <string name="search_for">Search for :</string>
     <string name="stop">STOP</string>
+    <string name="blink">Blink</string>
+    <string name="blink_1">Blink 5 times with interval of 2 seconds</string>
+    <string name="blink_2">Purple blinks once and after 3 seconds orange blinks</string>
 </resources>

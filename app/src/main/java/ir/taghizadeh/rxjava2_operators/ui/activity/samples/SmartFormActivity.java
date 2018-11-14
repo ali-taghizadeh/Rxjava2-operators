@@ -25,8 +25,6 @@ public class SmartFormActivity extends AppCompatActivity {
 */
 
     Unbinder unbinder;
-    @BindView(R.id.button_samples)
-    Button button_samples;
     @BindView(R.id.et_email)
     TextInputEditText et_mail;
     @BindView(R.id.et_password)
@@ -40,7 +38,6 @@ public class SmartFormActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_smart_form);
         unbinder = ButterKnife.bind(this);
-        button_samples.setVisibility(View.GONE);
     }
 
     private Disposable getValidationDisposable() {
